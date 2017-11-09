@@ -1,0 +1,6 @@
+setup.py
+url_documentation.py
+URLdocs.egg-info/PKG-INFO
+URLdocs.egg-info/SOURCES.txt
+URLdocs.egg-info/dependency_links.txt
+URLdocs.egg-info/top_level.txt

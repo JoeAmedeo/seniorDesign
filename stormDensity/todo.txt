@@ -1,0 +1,36 @@
+OB'To-Do:
+
+Finish the build_tree function -- done on 1/26/17
+Finish the doesRectIntersectPolygon function -- done on 2/14/17
+Finish the grid initialization code -- done on 2/15/17
+Write the code that takes in the Barnes-Hut tree, and a ScoreGrid object, and scores each point in the "grid" -- done on 2/16/17
+
+At this point, I think it would be best to write a C program that takes in the polygon from a file (as a list of lat-lon ponits), and a list of storm events (with lat-lon, and some associated storm damage), and some other params, and outputs a list of scored points as a file. Then, a Python script will read this file, and put a map together.
+
+Though, I'm wondering if it might be possible/advantageous to keep the latitude and longitude (instead of converting everything to cartesian), and use the distance function found in shape.c in the barnes hut algorithm.
+
+Is this even possible? If so, I think we should do it. My new to-do is to check if this is possible.
+
+After reviewing, I think it's possible, but yields a big problem: "quadrants" (rectangles) become weirdly shaped on latitude-longitude coordinates. Let's only do this if the conversion from lat/lon to cartesian and back yields serious issues. 
+
+
+NO, IT ISN'T POSSIBLE!
+
+We need to project using the COBE Quadrilatilized Spherical Cube (see: http://www.atnf.csiro.au/people/mcalabre/WCS/ccs.pdf and https://github.com/cix/QuadSphere/tree/master/lib/quad_sphere)
+
+
+TODO for quadrilaterized spherical cube model:
+1) Write code to convert latitude, longitude face, x, y
+2) Modify barnes hut construction to use projection.
+
+
+Write code in shape.c to convert cartesian to latitude/longitude.
+Write code in grid.c to convert a ScoreGrid in cartesian to a ScoreGrid in latitude/longitude.
+
+
+Write code that takes in a list of storm events, computes the Body objects, builds the tree, and computes scores on a grid.
+Write makefile
+Make sure quadrant height and width are set correctly -- done on 1/26/17 
+Make sure we don't attemp to create quadrants with size less than 1 -- done on 1/26/17
+
+

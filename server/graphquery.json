@@ -1,0 +1,34 @@
+{
+    "select" :
+    [
+	"year", "event_type"
+    ],
+    
+    "where" :
+    {
+	"event_details" :
+	[
+	    { "name" : "year", "flag" : 1, "list" :
+	      [
+		  { "value" : "1998" , "constraint" : ">="},
+		  { "value" : "2000" , "constraint" : "<="}
+	      ]
+	    },
+	    {"name" :  "state", "flag" : 1, "list" :
+	     [
+		 { "value" : "'\"TEXAS\"'" , "constraint" : "="}
+	     ]
+	    }
+	],
+	
+	"fatalities" :
+	[
+	    
+	]
+    },
+
+    "group_by" :
+    [
+	"year", "event_type"
+    ]
+}

@@ -1,0 +1,16 @@
+{ "result" : [
+        ["state", "stormType", "year", "count"],
+        ["Texas", "rain", 2000, 29],
+        ["Texas", "rain", 2001, 28],
+        ["Texas", "rain", 2002, 25],
+        ["Texas", "rain", 2003, 27],
+        ["Texas", "rain", 2004, 33],
+        ["Texas", "rain", 2005, 27],
+        ["Texas", "snow", 2000, 2],
+        ["Texas", "snow", 2001, 1],
+        ["Texas", "snow", 2002, 0],
+        ["Texas", "snow", 2003, 2],
+        ["Texas", "snow", 2004, 1],
+        ["Texas", "snow", 2005, 1]
+    ]
+}

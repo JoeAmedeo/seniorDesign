@@ -1,0 +1,17 @@
+{
+    "columns": ["stormType", "state", "year", "count"],
+    "rows": [
+        ["Tornado", "Texas", 2000, 15],
+        ["Tornado", "Texas", 2001, 12],
+        ["Tornado", "Texas", 2002, 11],
+        ["Tornado", "WV", 2003, 17],
+        ["Tornado", "WV", 2004, 13],
+        ["Tornado", "WV", 2005, 14],
+        ["Tornado", "CT", 2000, 3],
+        ["Tornado", "CT", 2001, 1],
+        ["Tornado", "CT", 2002, 0],
+        ["Tornado", "AL", 2003, 2],
+        ["Tornado", "AL", 2004, 1],
+        ["Tornado", "AL", 2005, 1]
+    ]
+}

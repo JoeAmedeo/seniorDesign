@@ -1,0 +1,1556 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Input JSON Structure",
+    "description" : "The structure of all JSON files entering and leaving",
+    "type" : "Object"
+
+    "and" :
+    {
+	"type" : "object"
+	"properties" :
+	{
+	    
+	    "episode_details" :
+	    {
+		"description" : "Constraints on episode details table"
+		"type" : "Object"
+		"properties" :
+		{
+		    "episode_id" :
+		    {
+			"description" : "Episode_id"
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "value of field"
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"description" : "constraint op to perform"
+				"type" : "String"
+			    }
+			}
+		    }
+		    "episode_narrative" :
+		    {
+			"description" : "recount of episode"
+			"type" : "String"
+		    }
+		}
+	    }
+	    
+	    "event_details" :
+	    {
+		"description" : "event_details constraints"
+		"type" : "Object"
+		"properties" :
+		{
+		    
+		    "event_id" :
+		    {
+			"description" : "the event id"
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "value of id"
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"description" : "type of constraint"
+				"type" : "String"
+			    }
+			}
+		    }
+
+		    "event_narrative" :
+		    {
+			"description" : "description of event"
+			"type" : "String"
+		    }
+
+		    "month_name" :
+		    {
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "name of month"
+				"type" : "String"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+
+		    "year" :
+		    {
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "year"
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+
+		    "begin_date_time" :
+		    {
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "YYYY/MM/DD HH:MM:SS"
+				"type" : "String"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+		    
+		    "end_date_time" :
+		    {
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "YYYY/MM/DD HH:MM:SS"
+				"type" : "String"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+
+		    "state_fips" :
+		    {
+			"description" : "state id number"
+			"type" : "Number"
+		    }
+
+		    "cz_fips" :
+		    {
+			"description" : "county id number"
+			"type" : "Number"
+		    }
+
+		    "cz_type" :
+		    {
+			"type" : "Number"
+		    }
+
+		    "cz_name" :
+		    {
+			"description" : "county name"
+			"type" : "String"
+		    }
+
+		    "state" :
+		    {
+			"type" : "String"
+		    }
+
+		    "wfo" :
+		    {
+			"description" : "weather station"
+			"type" : "String"
+		    }
+
+		    "cz_timezone" :
+		    {
+			"description" : "county timezone"
+			"type" : "String"
+		    }
+
+		    "injuries_direct" :
+		    {
+			"type" : "object"
+			"properties"
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+		    
+		    "injuries_indirect" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "deaths_direct" :
+		    {
+			"type" : "object"
+			"properties"
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+		    
+		    "deaths_indirect" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "event_type" :
+		    {
+			"type" : "string"
+		    }
+
+		    "magnitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}		    
+		    }
+
+		    "magnitude_type" :
+		    {
+			"type" : "string"
+		    }
+
+		    "category" :
+		    {
+			"type" : "string"
+		    }
+
+		    "tor_f_scale" :
+		    {
+			"type" : "string"
+		    }
+
+		    "tor_length" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "tor_width" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "tor_other_wfo" :
+		    {
+			"type" : "string"
+		    }
+
+		    "tor_other_cz_state" :
+		    {
+			"type" : "string"
+		    }
+
+		    "tor_other_cz_fips" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "tor_other_cz_name" :
+		    {
+			"type" : "string"
+		    }
+
+		    "damage_property" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "damage_crops" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "flood_cause" :
+		    {
+			"type" : "string"
+		    }
+
+		    "event_detailscol" :
+		    {
+			"type" : "string"
+		    }
+
+		    "begin_range" :
+		    {
+			"type" : "string"
+		    }
+
+		    "begin_azimuth" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "begin_location" :
+		    {
+			"type" : "string"
+		    }
+
+		    "end_range" :
+		    {
+			"type" : "string"
+		    }
+
+		    "end_azimuth" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "end_location" :
+		    {
+			"type" : "string"
+		    }
+		    
+		    "begin_latitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "begin_longitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "end_latitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "end_longitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+		    
+		    "data_source" :
+		    {
+			"type" : "string"
+		    }
+
+		    "episode_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+		}
+	    }
+	    
+	    "fatalities" :
+	    {
+		"description" : "constraints on fatalities table"
+		"type" : "object"
+		"properties" :
+		{
+		    
+		    "fatality_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "event_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "fatality_type" :
+		    {
+			"type" : "string"
+		    }
+
+		    "fatality_date" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "string" // DateTime
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "fatality_age" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "fatality_sex" :
+		    {
+			"type" : "string"
+		    }
+
+		    "fatality_location" :
+		    {
+			"type" : "string"
+		    }
+		}
+	    }
+
+	    "location" :
+	    {
+		"description" : "constraints on location table"
+		"type" : "object"
+		"properties" :
+		{
+
+		    "episode_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "event_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "location_index" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "range" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "azimuth" :
+		    {
+			"type" : "string"
+		    }
+
+		    "location" :
+		    {
+			"type" : "string"
+		    }
+
+		    "latitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "longitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "latitudeTwo" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "longitudeTwo" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "location_pk" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+		}
+	    }
+	}
+    }
+    
+    "or" :
+    {
+	"type" : "object"
+	"properties" :
+	{
+	    
+	    "episode_details" :
+	    {
+		"description" : "Constraints on episode details table"
+		"type" : "Object"
+		"properties" :
+		{
+		    "episode_id" :
+		    {
+			"description" : "Episode_id"
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "value of field"
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"description" : "constraint op to perform"
+				"type" : "String"
+			    }
+			}
+		    }
+		    "episode_narrative" :
+		    {
+			"description" : "recount of episode"
+			"type" : "String"
+		    }
+		}
+	    }
+	    
+	    "event_details" :
+	    {
+		"description" : "event_details constraints"
+		"type" : "Object"
+		"properties" :
+		{
+		    
+		    "event_id" :
+		    {
+			"description" : "the event id"
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "value of id"
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"description" : "type of constraint"
+				"type" : "String"
+			    }
+			}
+		    }
+
+		    "event_narrative" :
+		    {
+			"description" : "description of event"
+			"type" : "String"
+		    }
+
+		    "month_name" :
+		    {
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "name of month"
+				"type" : "String"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+
+		    "year" :
+		    {
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "year"
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+
+		    "begin_date_time" :
+		    {
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "YYYY/MM/DD HH:MM:SS"
+				"type" : "String"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+		    
+		    "end_date_time" :
+		    {
+			"type" : "Object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"description" : "YYYY/MM/DD HH:MM:SS"
+				"type" : "String"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+
+		    "state_fips" :
+		    {
+			"description" : "state id number"
+			"type" : "Number"
+		    }
+
+		    "cz_fips" :
+		    {
+			"description" : "county id number"
+			"type" : "Number"
+		    }
+
+		    "cz_type" :
+		    {
+			"type" : "Number"
+		    }
+
+		    "cz_name" :
+		    {
+			"description" : "county name"
+			"type" : "String"
+		    }
+
+		    "state" :
+		    {
+			"type" : "String"
+		    }
+
+		    "wfo" :
+		    {
+			"description" : "weather station"
+			"type" : "String"
+		    }
+
+		    "cz_timezone" :
+		    {
+			"description" : "county timezone"
+			"type" : "String"
+		    }
+
+		    "injuries_direct" :
+		    {
+			"type" : "object"
+			"properties"
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+		    
+		    "injuries_indirect" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "deaths_direct" :
+		    {
+			"type" : "object"
+			"properties"
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "String"
+			    }
+			}
+		    }
+		    
+		    "deaths_indirect" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "event_type" :
+		    {
+			"type" : "string"
+		    }
+
+		    "magnitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "Number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}		    
+		    }
+
+		    "magnitude_type" :
+		    {
+			"type" : "string"
+		    }
+
+		    "category" :
+		    {
+			"type" : "string"
+		    }
+
+		    "tor_f_scale" :
+		    {
+			"type" : "string"
+		    }
+
+		    "tor_length" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "tor_width" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "tor_other_wfo" :
+		    {
+			"type" : "string"
+		    }
+
+		    "tor_other_cz_state" :
+		    {
+			"type" : "string"
+		    }
+
+		    "tor_other_cz_fips" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "tor_other_cz_name" :
+		    {
+			"type" : "string"
+		    }
+
+		    "damage_property" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "damage_crops" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "flood_cause" :
+		    {
+			"type" : "string"
+		    }
+
+		    "event_detailscol" :
+		    {
+			"type" : "string"
+		    }
+
+		    "begin_range" :
+		    {
+			"type" : "string"
+		    }
+
+		    "begin_azimuth" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "begin_location" :
+		    {
+			"type" : "string"
+		    }
+
+		    "end_range" :
+		    {
+			"type" : "string"
+		    }
+
+		    "end_azimuth" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "end_location" :
+		    {
+			"type" : "string"
+		    }
+		    
+		    "begin_latitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "begin_longitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "end_latitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "end_longitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+		    
+		    "data_source" :
+		    {
+			"type" : "string"
+		    }
+
+		    "episode_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+		}
+	    }
+	    
+	    "fatalities" :
+	    {
+		"description" : "constraints on fatalities table"
+		"type" : "object"
+		"properties" :
+		{
+		    
+		    "fatality_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "event_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "fatality_type" :
+		    {
+			"type" : "string"
+		    }
+
+		    "fatality_date" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "string" // DateTime
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "fatality_age" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "fatality_sex" :
+		    {
+			"type" : "string"
+		    }
+
+		    "fatality_location" :
+		    {
+			"type" : "string"
+		    }
+		}
+	    }
+
+	    "location" :
+	    {
+		"description" : "constraints on location table"
+		"type" : "object"
+		"properties" :
+		{
+
+		    "episode_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "event_id" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "location_index" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "range" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "azimuth" :
+		    {
+			"type" : "string"
+		    }
+
+		    "location" :
+		    {
+			"type" : "string"
+		    }
+
+		    "latitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "longitude" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "latitudeTwo" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "longitudeTwo" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+
+		    "location_pk" :
+		    {
+			"type" : "object"
+			"properties" :
+			{
+			    "value" :
+			    {
+				"type" : "number"
+			    }
+			    "operation" :
+			    {
+				"type" : "string"
+			    }
+			}
+		    }
+		}
+	    }
+	}
+    }
+}

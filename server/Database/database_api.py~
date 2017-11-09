@@ -1,0 +1,242 @@
+
+## This is the database API
+## Contains functions relavent to the database
+
+from sqlalchemy import *
+from Database.orm import *
+from sqlalchemy import *
+from sqlalchemy.orm import *
+
+## Engine:
+# Creates and returns a new engine:
+def engine_start():
+    engine = create_engine('mysql+mysqlconnector://atr1@localhost:3306/stormTest', echo = False)
+    return engine
+    
+# Connects to the engine:
+def engine_connect(engine):
+    engine.connect()
+
+## Session:
+# Starts and returns a session
+def session_start(engine):
+    Session = sessionmaker()
+    session_bind(Session, engine)
+    session = Session()
+    return session
+
+# Binds the engine to the session
+def session_bind(session, engine):
+    session.configure(bind = engine)
+
+# Closes the session
+def session_close(session):
+    session.close()
+
+    
+## JSON data format:
+#  data['and'] -> 'and' or 'or' table
+#  ['location'] -> 'event_details', 'episode_details', 'location', 'fatalities' table
+#  [0] -> item in the table list
+#  ['state'] -> name of item's object
+#  ['value'] -> 'value' or 'constraint' of the object
+
+
+## Performs all query logic:
+def query_db(engine, and_dict, or_dict):
+    and_con_dict = constraint_table(and_dict)
+    #    or_con_dict = constraint_table(or_dict)
+    Session = session_start(engine)
+    session = Session()
+    and_query = query_and_table(session, and_con_dict)
+    or_query = None
+    #or_query = query_or_table(session, or_con_dict)
+    and_query = table_join(session, and_query)
+    #or_query = table_join(session, or_query)
+    query = query_join(session, and_query, or_query)
+    return query_one(query)
+
+# Test query:
+def query_test(engine):
+    session = session_start(engine)
+    info = "episode_id = 1"
+    print(info)
+    query = session.query(episode_details).filter(text(info))
+    print(query)
+    return query_one(query)
+
+## Constraint:
+# Generates constraint list
+def constraint_table(dictionary):
+    con_dict = {}
+    for key in dictionary:
+        table = dictionary[key]
+        con_dict[key] = build_constraints(table)
+    return con_dict
+        
+def build_constraints(table):
+    constraints = []
+    item = 0
+    while item < len(table):
+        for key in table[item]:
+            value = table[item][key]['value']
+            #if isinstance(value, int):
+            #   string = key + table[item][key]['constraint'] + str(value)
+            #else:
+            string =  key + table[item][key]['constraint'] + table[item][key]['value']
+            constraints.append(string)
+        item += 1
+    return constraints
+
+
+## Query:
+# Creates and returns a query object using the current session
+def query_new(session, table):
+    query = session.query(table)
+    return query
+
+# Creates and returns a list of all AND table queries
+def query_and_table(session, constraint_table):
+    table_query_list = []
+    #for table in constraint_table:
+    #    query = query_new(session, table)
+    #    query_and(query, constraint_table[table])
+    #    table_query_list.append(query)
+    query = query_new(session, episode_details)
+    query_and(query, constraint_table['episode_details'])
+    table_query_list.append(query)
+    return table_query_list
+
+# Creates and returns a list of all OR table queries
+def query_or_table(session, constraint_table):
+    table_query_list = []
+    #    for table in constraint_table:
+    #    query = query_new(session, table)
+    #   query_or(query, constraint_table[table])
+    #   table_query_list.append(query)
+    query = query_new(session, episode_details)
+    query_or(query, constraint_table['episode_details'])
+    table_query_list.append(query)
+    return table_query_list
+        
+# Filters query for specific table using AND constraints
+def query_and(query, constraints):
+    for item in constraints:
+        query = query.filter(text(item))
+        
+# Filters query for specific table using OR constraints
+def query_or(query, constraints):
+    for item in constraints:
+        query = query.filter(or_(text(item)))
+    return query
+
+# Joins table queries, returns AND/OR query
+def table_join(session, table_query_list):
+    query = table_query_list[0];  # event_details table
+#    query.join(table_query_list[2]); # join fatalities table
+#    query.join(table_query_list[3]); # join location table
+#    query.join(table_query_list[0]); # join episode_details table
+    return query
+
+# Joins AND and OR queries, returns query
+def query_join(session, and_query, or_query):
+   # query = and_query.join(or_query)
+   # query.join(and_query)
+   # query.join(or_query)
+    query = and_query
+    return query
+
+# Returns a list of tuples from query
+def query_all(query):
+    return query.all()
+                             
+def query_one(query):
+    return query.one()
+
+#######################################################################################
+############################# New Query 2.0 Stuff #####################################
+#######################################################################################
+
+# Query function
+def query_db2(engine, data):
+    session = session_start(engine)
+    query_dict = query_dictionary2(session, data)
+    for table in data:
+        query_dict[table] = query_filter2(query_dict[table], data[table])
+    result = query_join2(query_dict)
+    return result.all()
+        
+# Return a dictionary of queries
+def query_dictionary2(session, data):
+    query_dict = {}
+    for table in data:
+        orm_table = find_table2(table)
+        query = query_new2(session, orm_table)
+        query_dict[table] = query
+    return query_dict
+
+# Return a new query object
+def query_new2(session, table):
+    query = session.query(table)
+    return query
+
+# Filter out query for a table
+def query_filter2(query, table_constraints):
+    if table_constraints:
+        for constraint_obj in table_constraints:
+            constraint, flag = constraint_parse2(constraint_obj)
+            if flag:
+                query = query_and2(query, constraint)
+            else:
+                query = query_or2(query, constraint)
+        return query
+        
+# Parse out constraint
+def constraint_parse2(constraint_obj):
+    for item in constraint_obj:
+        field = item # Field of filter
+        value = constraint_obj[field]['value'] # Value of field
+        con = constraint_obj[field]['constraint'] # Constraint of field
+        flag = constraint_obj[field]['flag'] # Flag of field (1 = AND, 0 = OR)
+    constraint = item + con + value
+    return constraint, flag
+
+# Filters AND query
+def query_and2(query, constraint):
+    query = query.filter(text(constraint))
+    return query
+    
+# Filters OR query
+def query_or2(query, constraint):
+    query = query.filter(or_(text(constraint)))
+    return query
+
+# Return table name
+def find_table2(table):
+    if table == "episode_details":
+        return episode_details
+    elif table == "event_details":
+        return event_details
+    elif table == "fatalities":
+        return fatalities
+    elif table == "location":
+        return location
+    else:
+        return 0
+
+# Return all results
+def ret_all2(query):
+    return query.all()
+
+# Return one result
+def ret_one2(query):
+    return query.one()
+
+def query_join2(query_dict):
+    episode_query = query_dict['episode_details'].subquery()
+    event_query = query_dict['event_details']
+    fatalities_query = query_dict['fatalities']
+    location_query = query_dict['location']
+
+    query = event_query.join(episode_query)
+    return query

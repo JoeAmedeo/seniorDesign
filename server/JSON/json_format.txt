@@ -1,0 +1,79 @@
+JSON Format Documentation:
+-Andrew Guerra
+
+A brief overview on how to properly format incoming and outgoing JSON files.
+
+Input:
+
+Proper input JSON format is specified in json_inputschema.json file.
+It is important that all queries follow the format specified in this schema, otherwise it will fail validation.
+
+Note: You do not need to include every field.
+      Only include fields that are being filtered/constrained (specified by the user).
+      Can include fields multiple times for multiple constraints of the same type.
+
+
+There are two main constraint types:
+
+1) String constraints:
+   - because of the nature of strings, values that are of the type string can only be constrained one way. That is 'field' = 'value'.
+   - because of this, string constraints can be handled by the server implicitly.
+     - so for strings you only need to specify the name of the value, not the constraint operation.
+   - fields that qualify as string constraints are 'state', 'month', 'location'.
+
+2) Object constraints:
+   - some fields have number values which can be constrained in multiple ways.
+   - becuase of this, object constraints have both a value and operation field which must both be specified.
+
+
+General JSON query format:
+
+{
+    "table_1" :
+    {
+	"string_constraint_1" : "constraint",
+	"string_constraint_2" : "constraint",
+	"object_constraint_1" :
+	{
+	    "value" : "constraint",
+	    "operation" : "type"
+	},
+	"string_constraint_1" : "different_constraint"
+    }
+
+    "table_2" :
+    {
+	"object_constraint_2" :
+	{
+	    "value" : "constraint",
+	    "operation" : "type"
+	}
+    }
+}
+
+
+Note the following from above:
+- Fields go to the left of the colon.
+- Constraints go on the right of the colon.
+
+
+Example:
+
+{
+    "event_details" :
+    {
+	"month" : "October"
+	"year" :
+	{
+	    "value" : "1994"
+	    "constraint" : ">"
+	}
+	"state" : "Connecticut"
+	"state" : "New York"
+    }
+}
+
+The above query will return all storms bounded by the following constraints:
+- Month is October
+- Year is after 1994 (evaluates to "year > 1994")
+- State's are Connecticut and New York

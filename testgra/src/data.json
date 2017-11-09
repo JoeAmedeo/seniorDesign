@@ -1,0 +1,49 @@
+[{
+    "Client": "Rain",
+    "sale": "065",
+    "year": "2000"
+}, {
+    "Client": "Rain",
+    "sale": "054",
+    "year": "2001"
+}, {
+    "Client": "Rain",
+    "sale": "053",
+    "year": "2002"
+}, {
+    "Client": "Rain",
+    "sale": "057",
+    "year": "2003"
+}, {
+    "Client": "Rain",
+    "sale": "072",
+    "year": "2004"
+}, {
+    "Client": "Rain",
+    "sale": "055",
+    "year": "2005"
+}, {
+    "Client": "Snow",
+    "sale": "012",
+    "year": "2000"
+}, {
+    "Client": "Snow",
+    "sale": "013",
+    "year": "2001"
+}, {
+    "Client": "Snow",
+    "sale": "020",
+    "year": "2002"
+}, {
+    "Client": "Snow",
+    "sale": "017",
+    "year": "2003"
+}, {
+    "Client": "Snow",
+    "sale": "012",
+    "year": "2004"
+}, {
+    "Client": "Snow",
+    "sale": "015",
+    "year": "2005"
+}]

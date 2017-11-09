@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets from CDN -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.css">
+
+    <!-- Add Stylesheet -->
+    <!--<link href="main.css" rel="stylesheet">-->
+
+</head>
+<body>
+
+<!-- Add HTML -->
+
+<div class="container">
+    <center><h1>Historical Storm Analysis</h1></center>
+</div>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="http://cs-sdp7.engr.uconn.edu:5000/api/test_table">Table Querying</a></li>
+      <li><a href="http://cs-sdp7.engr.uconn.edu:5000/api/graph">Graph Querying</a></li>
+      <li><a href="http://cs-sdp7.engr.uconn.edu:5000/api/maps">Map Querying</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+<p style="font-size:16px">Welcome to our project!</p>
+<p style="font-size:16px">
+    The Historical Storm Analysis Tool is a website application that can be used to help interpret data from the National Climate Data Center (NCDC) Storm Events Database. The NCDC is a database created and maintained by the National Weather Server (NWS) and the National Oceanic and Atmospheric Administration (NOAA). The database includes detailed information about every storm that has occurred within the United States since 1950. Some of the information included are: storm date, time, state, county, event type, injuries, deaths, property damage, magnitude, location, and many more. Our goal with the Historical Storm Analysis Tool is to make all of the data from the NCDC database easily accessible to our users.
+</p>
+<p style="font-size:16px">
+    To accomplish this task, the project will demonstrate data using the three following formats: tables, graphs and maps. Each format will be supported by a query system, a powerful database search tool. This tool will allow users to specify constraints on the searched data. For example, a user might want to return all storms that caused more than $10,000 in property damage in 1976. By using the querying tool the user can specify these constraints, and the system will only return results matching that specified criteria. Returned data can be displayed in several ways, the first and most simple way will be through a table. The table will show you the raw data queried from the database. This table can be manipulated via sorting by column header, removal of columns, and limiting row display to prevent overcrowded pages. In addition to the table, the user will also be able to view a graph of any variables that they want. For example, the user could compare the frequency of 10 different storms occurring in Connecticut in a specific 20-year period. This will allow the user to easily view and identify trends in the data by quickly looking at a graph. Lastly, this tool will generate a heat map to help display the storms that have occurred in the Unites States. We are using the Google Maps API and our own visualization methods to demonstrate storms in a visually appealing and easy to navigate way.
+</p>
+</div>
+
+
+
+<!-- Javascript from CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+<!-- Add javascript  -->
+<!--<script src="main.js" type="text/javascript"></script>-->
+
+<!-- <script type = "text/javascript" src = "table.js"></script> -->
+
+</body>
+</html>

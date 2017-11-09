@@ -1,0 +1,216 @@
+    <!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets from CDN -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.css">
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet">
+
+    <!-- Add Stylesheet -->
+    <link href="{{ url_for('static', filename='graphmain.css') }}" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Add HTML -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="http://cs-sdp7.engr.uconn.edu:5000/api/test_table">Table Querying</a></li>
+        <li class="active"><a href="http://cs-sdp7.engr.uconn.edu:5000/api/graph">Graph Querying</a></li>
+        <li><a href="http://cs-sdp7.engr.uconn.edu:5000/api/maps">Map Querying</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="ui-widget">
+        <h3>Variables for x-axis</h3>
+        <p id="empty-message-15"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="startYearField">Start Year: </label>
+        <input id="startYearField"/>
+        <p id="empty-message-13"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="endYearField">End Year: </label>
+        <input id="endYearField"/>
+        <p id="empty-message-14"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <h3>Variables for y-axis</h3>
+        <p id="empty-message-16"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <select id = "myList">
+            <option value = "1">Storm Frequency</option>
+            <option value = "2">Fatalities</option>
+            <option value = "3">Injuries</option>
+            <option value = "4">Rainfall Total</option>
+            <option value = "5">Snowfall Total</option>
+            <option value = "6">Injuries</option>
+            <option value = "7">Snowfall Total</option>
+        </select>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <h3>Variables for each line</h3>
+        <p id="empty-message-17"></p>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField1">Event Type 1: </label>
+        <input id="eventTypesField1"/>
+        <p id="empty-message-1"></p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField2">Event Type 2: </label>
+        <input id="eventTypesField2"/>
+        <p id="empty-message-2"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField3">Event Type 3: </label>
+        <input id="eventTypesField3"/>
+        <p id="empty-message-3"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField4">Event Type 4: </label>
+        <input id="eventTypesField4"/>
+        <p id="empty-message-4"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField5">Event Type 5: </label>
+        <input id="eventTypesField5"/>
+        <p id="empty-message-5"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField6">Event Type 6: </label>
+        <input id="eventTypesField6"/>
+        <p id="empty-message-6"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField7">Event Type 7: </label>
+        <input id="eventTypesField7"/>
+        <p id="empty-message-7"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField8">Event Type 8: </label>
+        <input id="eventTypesField8"/>
+        <p id="empty-message-8"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField9">Event Type 9: </label>
+        <input id="eventTypesField9"/>
+        <p id="empty-message-9"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="eventTypesField10">Event Type 10: </label>
+        <input id="eventTypesField10"/>
+        <p id="empty-message-10"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <h3>Specifications</h3>
+        <p id="empty-message-18"></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="statesField1">State: </label>
+        <input id="statesField1" />
+        <p></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="ui-widget">
+        <label for="countiesField">County/Zone: </label>
+        <input id="countiesField"/>
+        <p id="empty-message-12"></p>
+    </div>
+</div>
+
+
+<div class="container">
+    <button type="button" class="btn btn-primary btn-lg" id="SubmitButton">Submit</button>
+</div>
+
+<h1 align="center" id="title"></h1>
+<div class="container">
+
+
+    <div class="jumbotron">
+
+        <svg id="visualisation" width="1000" height="500"></svg>
+
+    </div>
+</div>
+
+<!-- Javascript from CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+<!-- Add javascript  -->
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src=""{{ url_for('static', filename='graphmain.js') }}" charset="utf-8"></script>
+
+
+</body>
+</html>

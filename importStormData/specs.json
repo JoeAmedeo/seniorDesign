@@ -1,0 +1,80 @@
+{"pythonEnv":"env.py",
+ "csvMaps":
+ {
+     "StormEvents_details-ftp.*\\.csv":
+     {
+	 "order":1,
+	 "tableOrder": [ "episode_details", "event_details"],
+      "event_details":[
+          ["EVENT_ID", "event_id"],
+	  ["EPISODE_ID", "episode_id"],
+          ["STATE", "state"],
+          ["STATE_FIPS", "state_fips"],
+          ["YEAR", "year"],
+          ["MONTH_NAME", "month_name"],
+          ["EVENT_TYPE", "event_type"],
+          ["CZ_TYPE", "cz_type"],
+          ["CZ_FIPS", "cz_fips"],
+          ["CZ_NAME", "cz_name"],
+          ["WFO", "wfo"],
+          ["BEGIN_DATE_TIME", "lambda x: convertDateTime(x)", "begin_date_time"],
+          ["CZ_TIMEZONE", "cz_timezone"],
+          ["END_DATE_TIME", "lambda x: convertDateTime(x)", "end_date_time"],
+          ["INJURIES_DIRECT", "injuries_direct"],
+          ["INJURIES_INDIRECT", "injuries_indirect"],
+          ["DEATHS_DIRECT", "deaths_direct"],
+          ["DEATHS_INDIRECT", "deaths_indirect"],
+          ["DAMAGE_PROPERTY", "lambda x: convertDamage(x)", "damage_property"],
+          ["DAMAGE_CROPS", "lambda x: convertDamage(x)", "damage_crops"],
+          ["MAGNITUDE", "magnitude"],
+          ["MAGNITUDE_TYPE", "magnitude_type"],
+          ["FLOOD_CAUSE", "flood_cause"],
+          ["CATEGORY", "category"],
+          ["TOR_F_SCALE", "tor_f_scale"],
+          ["TOR_LENGTH", "tor_length"],
+          ["TOR_WIDTH", "tor_width"],
+          ["TOR_OTHER_WFO", "tor_other_wfo"],
+          ["TOR_OTHER_CZ_STATE", "tor_other_cz_state"],
+          ["TOR_OTHER_CZ_FIPS", "tor_other_cz_fips"],
+          ["TOR_OTHER_CZ_NAME", "tor_other_cz_name"],
+          ["EVENT_NARRATIVE", "event_narrative"]],
+
+	 "episode_details":{
+	     "primaryKey": "EPISODE_ID",
+	     "fields":[
+          ["EPISODE_ID", "episode_id"],
+	  ["EPISODE_NARRATIVE", "episode_narrative"]]
+	 }
+  },
+  "StormEvents_fatalities-ftp.*\\.csv":
+     {
+	 "order":2,
+      "fatalities":[
+          ["FATALITY_ID", "fatality_id"],
+          ["EVENT_ID", "event_id"],
+          ["FATALITY_TYPE", "fatality_type"],
+          ["FATALITY_DATE", "lambda x: convertFatalityDateTime(x)", "fatality_date"],
+          ["FATALITY_AGE", "fatality_age"],
+          ["FATALITY_SEX", "fatality_sex"],
+          ["FATALITY_LOCATION", "fatality_location"]]
+  },
+  "StormEvents_locations-ftp.*\\.csv":
+     {
+	 "order":3,
+	 "location":[
+             ["EPISODE_ID", "episode_id"], 
+             ["EVENT_ID", "event_id"],
+             ["LOCATION_INDEX", "location_index"],
+             ["RANGE", "range"],
+             ["AZIMUTH", "azimuth"],
+             ["LOCATION", "location"],
+             ["LATITUDE", "latitude"],
+             ["LONGITUDE", "longitude"],
+	     ["LAT2", "latitudeTwo"],
+	     ["LON2", "longitudeTwo"]
+	 ]
+     }
+ }
+}
+
+

@@ -1,0 +1,11 @@
+{
+    "query" :
+    [
+	{"name" : "state", "params" :
+	 [{"type" : "=", "value" : "'\"TEXAS\"'"},
+	  {"type" : "=", "value" : "'\"NEW YORK\"'"}]
+	},
+	{"name" : "fatality_sex", "type" : "=", "value" : "'\"M\"'"},
+	{"name" : "year", "type" : ">", "value" : 1994}
+    ]
+}

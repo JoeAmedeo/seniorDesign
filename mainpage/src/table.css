@@ -1,0 +1,29 @@
+table, tr, td {
+    border: 1px solid #666666;
+    border-collapse: collapse;
+}
+table {
+    margin: 10px;
+}
+thead {
+    font-style: oblique;
+}
+
+#table-container {
+    position: relative;
+}
+
+#scroller {
+    height : 50px;
+    overflow: auto;
+    margin-top: 20px;
+}
+
+#table-container table thead th .text {
+    position: absolute;
+    top: -20px;
+    z-index: 2;
+    height: 20px;
+    width: 35%;
+    border: 1px solid black;
+}

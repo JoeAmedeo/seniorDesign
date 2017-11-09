@@ -1,0 +1,36 @@
+{
+
+    "select" :
+    [
+	"episode_id", "event_id", "year", "state"
+    ],
+    
+    "where" :
+    {
+	"episode_details" :
+	[
+	    { "name" : "episode_id" , "flag" : 1, "list" : [{"value" : "2400000", "constraint" : ">"}]}
+	],
+
+	"event_details" :
+	[
+	    { "name" : "year", "flag" : 1, "list" :
+	      [
+		  { "value" : "1998" , "constraint" : ">="},
+		  { "value" : "2000" , "constraint" : "<="}
+	      ]
+	    },
+	    {"name" :  "state", "flag" : 0, "list" :
+	     [
+		 { "value" : "'\"TEXAS\"'" , "constraint" : "="},
+		 { "value" : "'\"CONNECTICUT\"'" , "constraint" : "="}
+	     ]
+	    }
+	],
+
+	"fatalities" :
+	[
+
+	]
+    }
+}

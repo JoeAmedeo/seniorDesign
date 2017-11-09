@@ -1,0 +1,13 @@
+{
+    "query" :
+    [
+	{"name" : "year", "type" : ">", "value" : 1994},
+	{"name" : "year", "type" : "<", "value" : 2016}
+    ],
+
+    "columns" :
+    [
+	"year", "event_type"
+    ]
+}
+

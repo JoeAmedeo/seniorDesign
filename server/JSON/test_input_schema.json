@@ -1,0 +1,25 @@
+{
+    "$schema" : "http://json-schema.org/draft-04/schema#",
+    "title" : "Input JSON Structure",
+    "description" : "Test structure of all JSON files entering and leaving",
+    "type" : "Object"
+    "properties":
+    {
+	"and" :
+	{
+	    "type" : "object"
+	    "properties" :
+	    {
+		"year" :
+		{
+		    "type"
+		}
+	    }
+	}
+
+	"or" :
+	{
+
+	}
+    }
+}

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html ng-app="app1">
+
+<head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.css">
+    <!-- 
+    Incase we ever need angularjs for this project...
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> 
+    -->
+
+    <link href="{{ url_for('static', filename='main.css') }}" type="text/css" rel="stylesheet">
+    <!--<link href="main.css" type="text/css" rel="stylesheet">-->
+
+    
+    <link href="{{ url_for('static', filename='table.css') }}" type="text/css" rel="stylesheet">
+    <!--<link href="table.css" type="text/css" rel="stylesheet">-->
+    
+    
+</head>
+
+<body>
+    
+    <div class="container">
+        <center><h1>Historical Storm Analysis</h1></center>
+    </div>
+
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li class="active"><a href="http://cs-sdp7.engr.uconn.edu:5000/api/test_table">Table Querying</a></li>
+        <li><a href="TestTable.html">Graph Querying</a></li>
+        </ul>
+    </div>
+    </nav>
+
+    <div id = "hide_show_box_1">
+        Hide---<b>Show</b>
+    </div>
+
+    <div class="left">
+        
+    <div class="container">
+        <div class="ui-widget">
+            <label for="InjuriesDirect"> 
+            Direct Injuries:
+            </label>
+            <input id="InjuriesDirect1"/> operator <input id="operator1"/>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="InjuriesIndirect"> 
+            Indirect Injuries:
+            </label>
+            <input id="InjuriesIndirect1"/> operator <input id="operator2"/>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="DeathsDirect"> 
+            Direct Deaths:
+            </label>
+            <input id="DeathsDirect1"/> operator <input id="operator3"/>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="DeathsIndirect"> 
+            Indirect Deaths:
+            </label>
+            <input id="DeathsIndirect1"/> operator <input id="operator4"/>
+        </div>
+    </div>    
+        
+    <!--
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField2">Event Type 2: </label>
+            <input id="eventTypesField2"/>
+            <p id="empty-message-2"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField3">Event Type 3: </label>
+            <input id="eventTypesField3"/>
+            <p id="empty-message-3"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField4">Event Type 4: </label>
+            <input id="eventTypesField4"/>
+            <p id="empty-message-4"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField5">Event Type 5: </label>
+            <input id="eventTypesField5"/>
+            <p id="empty-message-5"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField6">Event Type 6: </label>
+            <input id="eventTypesField6"/>
+            <p id="empty-message-6"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField7">Event Type 7: </label>
+            <input id="eventTypesField7"/>
+            <p id="empty-message-7"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField8">Event Type 8: </label>
+            <input id="eventTypesField8"/>
+            <p id="empty-message-8"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField9">Event Type 9: </label>
+            <input id="eventTypesField9"/>
+            <p id="empty-message-9"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField10">Event Type 10: </label>
+            <input id="eventTypesField10"/>
+            <p id="empty-message-10"></p>
+        </div>
+    </div>
+    -->
+    </div>
+
+    <div class="right">
+
+    <!--
+    <div class="container">
+        <div class="ui-widget">
+            <label for="endYearField">End Year: </label>
+            <input id="endYearField"/> operator
+            <input id="operatorField5">
+            <p id="empty-message-14"></p>
+        </div>
+    </div>
+    -->
+        
+    <div class="container">
+        <div class="ui-widget">
+            <label for="eventTypesField1">Event Type: </label>
+            <input id="eventTypesField1"/>
+            <p id="empty-message-1"></p>
+        </div> 
+    </div>
+        
+    <div class="container">
+        <div class="ui-widget">
+            <label for="statesField">States: </label> 
+            <input id="statesField"/>
+            <p id="empty-message-11"></p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="countiesField">County/Zone: </label>
+            <input id="countiesField"/>
+            <p id="empty-message-12"></p>
+        </div>
+    </div>
+        
+    <div class="container">
+        <div class="ui-widget">
+            <label for="startYearField">Start Year: </label>
+            <input id="startYearField"/> operator
+            <input id ="operator5"/>
+            <p id="empty-message-13"></p>
+        </div>
+    </div>    
+        
+    <div class="container">
+        <div class="ui-widget">
+            <label for="MonthField1"> 
+            Month:
+            </label>
+            <input id="MonthField1"/>
+        </div>
+    </div>    
+        
+
+    <!--<div class="container">
+        <div class="ui-widget">
+            <label for="DamageProperty"> 
+            Damage to Property:
+            </label>
+            <input id="DamageProperty1"/> To <input id="DamageProperty2"/>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="DamageCrops"> 
+            Damage to Crops:
+            </label>
+            <input id="DamageCrops1"/> To <input id="DamageCrops2"/>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Magnitude"> 
+            Magnitude:
+            </label>
+            <input id="Magnitude1"/> To <input id="Magnitude2"/>
+        </div>
+    </div>-->
+    </div>
+    
+    <div class="clear"></div>
+
+    <br />
+    
+    <!--<div id = "hide-show_box_2">
+        Hide---<b>Show</b>
+    </div>
+    <div class = "left">
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Starting_Latitude"> 
+            Starting Latitude:
+            </label>
+            <input id="Starting_Latitude1"/> To <input id="Starting_Latitude2"/>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Starting_Longitude"> 
+            Starting Longitude:
+            </label>
+            <input id="Starting_Longitude1"/> To <input id="Starting_Longitude2"/>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Ending_Latitude"> 
+            Ending Latitude:
+            </label>
+            <input id="Ending_Latitude1"/> To <intput id="Ending_Latitude2"/>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Ending_Longitude"> 
+            Ending Longitude:
+            </label>
+            <input id="Ending_Longitude1"/> To <input id="Ending_Longitude2"/>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Range"> 
+            Range:
+            </label>
+            <input id="Range1"/> To <input id="Range2"/>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Azimuth"> 
+            Azimuth:
+            </label>
+            <input id="Azimuth1"/>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Fatality_Type"> 
+            Fatality Type:
+            </label>
+            <input id="Fatality_Type"/>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Fatality_Age"> 
+            Fatality Age:
+            </label>
+            <input id="Fatality_Age1"/> To <input id="Fatality_Age2"/>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Fatality_Sex"> 
+            Fatality Sex:
+            </label>
+            <input id="Fatality_Sex"/>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="ui-widget">
+            <label for="Magnitude"> 
+            Magnitude:
+            </label>
+            <input id="Magnitude1"/> To <input id="Magnitude2"/>
+        </div>
+    </div>
+    </div>
+    <br />-->
+
+    <div class="container">
+        <button type="button" class="btn btn-primary btn-lg" id="SubmitButton">Submit</button>
+    </div>
+    
+    <!--
+    <script type="text/javascript">
+    var eventTypesField1 = document.getElementById("eventTypesField1").value;
+    var eventTypesField2 = document.getElementById("eventTypesField2").value;
+    var eventTypesField3 = document.getElementById("eventTypesField3").value;
+    var eventTypesField4 = document.getElementById("eventTypesField4").value;
+    var eventTypesField5 = document.getElementById("eventTypesField5").value;
+    var eventTypesField6 = document.getElementById("eventTypesField6").value;
+    var eventTypesField7 = document.getElementById("eventTypesField7").value;
+    var eventTypesField8 = document.getElementById("eventTypesField8").value;
+    var eventTypesField9 = document.getElementById("eventTypesField9").value;
+    var eventTypesField10 = document.getElementById("eventTypesField10").value;
+
+    var statesField = document.getElementById("statesField").value;
+    var countiesField = document.getElementById("countiesField").value;
+    var startYearField = document.getElementById("startYearField").value;
+    var endYearField = document.getElementById("endYearField").value;
+    var InjuriesDirect1 = document.getElementById("InjuriesDirect1").value;
+    var InjuriesDirect2 = document.getElementById("InjuriesDirect2").value;
+    var InjuriesIndirect1 = document.getElementById("InjuriesIndirect1").value;
+    var InjuriesIndirect2 = document.getElementById("InjuriesIndirect2").value;
+    </script>
+    -->
+    <br />
+    
+    
+    <div id="table_container">
+    <div id="scroller">
+    <div>
+        <table id="table">
+
+        </table>
+    </div>
+    </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    
+    <script type="text/javascript" src="{{url_for('static', filename='table2CSV.js')}}"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='tableSearch.js') }}"></script>
+    <!--<script type="text/javascript" src="tableSearch.js"></script>-->
+   
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='table.js') }}"></script>
+    <!--<script type="text/javascript" src="table.js"></script>-->
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='query.js') }}"></script>
+    <!--<script type="text/javascript" src="query.js"></script>-->
+    
+    
+    <!-- scripts for heatmap -->
+    
+</body>
+
+</html>

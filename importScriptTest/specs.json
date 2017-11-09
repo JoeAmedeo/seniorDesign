@@ -1,0 +1,10 @@
+{"pythonEnv":"env.py",
+ "csvMaps":
+ {"test\\d*\\.csv":
+  {"secondImportTest":[
+   ["w", "a"],
+   ["x", "y", "lambda i,j: g(i, j)", "b"],
+   ["z", "c"]]
+  }
+ }
+}
